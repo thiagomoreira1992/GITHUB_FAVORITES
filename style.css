@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-results: 'Roboto Mono', sans-serif;
+    --text-color: #ffffff;
+
+    --hue: 194;
+    --primary-color: hsl(var(--hue), 100%, 25%);
+    --table-color:  hsl(var(--hue),72%, 13%);
+    --table-color-even: hsl(var(--hue), 64%, 6%);
+    --table-color-odd: hsla(var(--hue), 64%, 6%, 0.5);
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+body{
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: #000;
+}
+
+body *{
+    font-family: var(--ff-primary);
+    
+
+}
+
+#app{
+    padding:  2rem;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 11.5rem 0 8.5rem;
+    gap: 16px;
+}
+
+header h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 4.8rem;
+    width: 75%;
+}
+
+.search input{
+    height: 4.8rem;
+    border: 1px solid #ccc;
+    border-radius: .4rem;
+    padding: 0 0.8rem;
+    /* max-width: 46rem;*/
+    min-width: 28rem; 
+    /* width: clamp(22rem, 21rem + 10vw, 48rem); */
+    margin-right: 0.8rem;
+}
+
+.search button{
+    background-color: var(--primary-color);
+    border-radius: 0.4rem;
+    border: none;
+    padding: 1.2rem 3.2rem;
+    /* padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    padding-left: clamp(1rem, 0.8rem + 0.5vw, 3.2rem);
+    padding-right: clamp(1rem, 0.8rem + 0.5vw, 3.2rem); */
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    gap: 8px;
+    line-height: 2.4rem;
+    font-size: 1.4rem;
+    color:var(--text-color);
+}
+
+.search button svg{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.search button:hover{
+    background: #fff;
+}
+
+table{
+    width:100%;
+    border-collapse: collapse;
+
+    box-shadow: 0 1rem 2rem  -1rem rgba(0,0,0, 0.3);
+    
+
+}
+
+table *{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    
+    
+}
+
+table th{
+    background-color: var(--table-color);
+    text-align: left;
+    font-weight: bold;
+    padding:  1.6rem 4rem;
+    line-height: 160%;
+    
+    
+}
+thead{
+    border-radius: 1.2rem;
+}
+
+table th:first-child{
+    border-top-left-radius: 1.2rem;
+    width: 50%;
+}
+
+table th:last-child{
+    border-top-right-radius: 1.2rem;
+    padding-right: 5rem;
+}
+
+table td{
+    padding:  1.6rem 4rem;
+    
+}
+tbody{
+    overflow: hidden;
+    /* border: 1px solid #4a808c; */
+    border-radius: 12px;
+    
+
+}
+
+table tr:nth-child(odd){
+    background-color: var(--table-color-odd);
+}
+
+table tr:nth-child(even){
+    background-color: var(--table-color-even);
+}
+
+
+
+td.user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.8rem 2rem 2.8rem 4rem;
+}
+
+td.user img{
+    width: 5rem;
+    height: 5rem;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+td.user a{
+    text-decoration: none;
+
+}
+
+td.user p{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+td.user span{
+    font-size: 2rem;
+
+}
+
+td .remove{
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #F75A68;
+    cursor: pointer;
+}
+
+tbody{
+    position: relative;
+    border-radius: 12px;
+    
+
+}
+
+.tr-no-results{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+    border-radius: 0 0 12px 12px;
+}
+
+.no-results{
+    background-color: var(--table-color-odd);
+    width: 100%;
+    height: clamp(24rem, 22rem + 10vw, 70rem);
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    align-items: center;
+    font-size: 4rem;
+    line-height: 2.4rem;
+    font-family: var(--ff-results);
+    text-align: center;
+    gap: 6rem;
+    justify-content: center;
+}
+
+.no-results svg{
+    width: 13.2rem;
+    height: 13.2rem;
+}
