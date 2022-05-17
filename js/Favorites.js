@@ -88,6 +88,7 @@ export class FavoritesView extends Favorites {
             })
         }else{
             this.removeAllTr();
+            
 
             this.tbody.append(this.rowNoEntries())
         }
@@ -119,10 +120,9 @@ export class FavoritesView extends Favorites {
 
     createRow({ login, name, public_repos, followers }) {
         const tr = document.createElement('tr');
-        tr.style.borderRadius = "12px";
 
         tr.innerHTML = `
-            <td class="user" style="border-radius: 12px;">
+            <td class="user">
                 <img src="https://github.com/${login}.png" alt="Imagem de ${name}">
                 <a href="https://github.com/${login}" target="_blank">
                     <p>${name}</p>

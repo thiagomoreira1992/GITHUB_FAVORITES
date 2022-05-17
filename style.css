@@ -72,13 +72,15 @@ header h1{
 
 .search input{
     height: 4.8rem;
-    border: 1px solid #ccc;
-    border-radius: .4rem;
+    border: none;
+    border-radius: .5rem;
     padding: 0 0.8rem;
     /* max-width: 46rem;*/
     min-width: 28rem; 
     /* width: clamp(22rem, 21rem + 10vw, 48rem); */
     margin-right: 0.8rem;
+    background-color: #06181C;
+    color: var(--ff-primary);
 }
 
 .search button{
@@ -133,17 +135,15 @@ table th{
     font-weight: bold;
     padding:  1.6rem 4rem;
     line-height: 160%;
+    font-size: 2rem;
     
-    
-}
-thead{
-    border-radius: 1.2rem;
 }
 
 table th:first-child{
     border-top-left-radius: 1.2rem;
     width: 50%;
 }
+
 
 table th:last-child{
     border-top-right-radius: 1.2rem;
@@ -154,23 +154,31 @@ table td{
     padding:  1.6rem 4rem;
     
 }
-tbody{
-    overflow: hidden;
-    /* border: 1px solid #4a808c; */
-    border-radius: 12px;
-    
-
-}
 
 table tr:nth-child(odd){
     background-color: var(--table-color-odd);
+
 }
 
 table tr:nth-child(even){
     background-color: var(--table-color-even);
+    
 }
 
+/* table tbody tr:last-child{
+    border-bottom-left-radius: 12px;
 
+} */
+
+table tr:last-child td:first-child{
+    border-bottom-left-radius: 12px;
+
+}
+
+table tr:last-child td:last-child{
+    border-bottom-right-radius: 12px;
+
+}
 
 td.user{
     display: flex;
@@ -212,9 +220,6 @@ td .remove{
 
 tbody{
     position: relative;
-    border-radius: 12px;
-    
-
 }
 
 .tr-no-results{
@@ -222,18 +227,18 @@ tbody{
     width: 100%;
     position: absolute;
     justify-content: center;
-    border-radius: 0 0 12px 12px;
+    /* border-radius: 0 0 12px 12px; */
 }
 
 .no-results{
     background-color: var(--table-color-odd);
     width: 100%;
     height: clamp(24rem, 22rem + 10vw, 70rem);
-    border-radius: 0 0 12px 12px;
+    /* border-radius: 0 0 12px 12px; */
     display: flex;
     align-items: center;
     font-size: 4rem;
-    line-height: 2.4rem;
+    line-height: 3.6rem;
     font-family: var(--ff-results);
     text-align: center;
     gap: 6rem;
