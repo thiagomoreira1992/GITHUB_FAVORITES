@@ -16,6 +16,8 @@
     --table-color:  hsl(var(--hue),72%, 13%);
     --table-color-even: hsl(var(--hue), 64%, 6%);
     --table-color-odd: hsla(var(--hue), 64%, 6%, 0.5);
+
+    --mg-top: min(11.5rem, 12vh);
 }
 
 .sr-only{
@@ -46,13 +48,14 @@ body *{
     padding:  2rem;
     max-width: 1120px;
     margin: 0 auto;
+    width: clamp(75rem, 96rem)
 }
 
 header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 11.5rem 0 8.5rem;
+    margin: var(--mg-top) 0 8.5rem;
     gap: 16px;
 }
 
@@ -75,9 +78,7 @@ header h1{
     border: none;
     border-radius: .5rem;
     padding: 0 0.8rem;
-    /* max-width: 46rem;*/
     min-width: 28rem; 
-    /* width: clamp(22rem, 21rem + 10vw, 48rem); */
     margin-right: 0.8rem;
     background-color: #06181C;
     color: var(--ff-primary);
@@ -88,10 +89,6 @@ header h1{
     border-radius: 0.4rem;
     border: none;
     padding: 1.2rem 3.2rem;
-    /* padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
-    padding-left: clamp(1rem, 0.8rem + 0.5vw, 3.2rem);
-    padding-right: clamp(1rem, 0.8rem + 0.5vw, 3.2rem); */
     cursor: pointer;
     transition: all 0.3s;
     display: flex;
@@ -104,29 +101,32 @@ header h1{
     color:var(--text-color);
 }
 
-.search button svg{
+.search button svg, button path{
     width: 2.4rem;
     height: 2.4rem;
+    transition: all 0.3s;
 }
 
-.search button:hover{
+.search button:hover, button:hover svg path{
     background: #fff;
+    color: #065E7C;
+    fill: #065E7C;
 }
 
 table{
     width:100%;
-    border-collapse: collapse;
-
-    box-shadow: 0 1rem 2rem  -1rem rgba(0,0,0, 0.3);
+    border-collapse: separate;
+    border-style: hidden;
+    border: 1px solid #4A808C;
+    border-spacing: 0;
     
-
+    box-shadow: 0 1rem 2rem  -1rem rgba(0,0,0, 0.3);
+    border-radius: 1.2rem;
 }
 
 table *{
     font-size: 1.4rem;
     color: var(--text-color);
-    
-    
 }
 
 table th{
@@ -142,6 +142,7 @@ table th{
 table th:first-child{
     border-top-left-radius: 1.2rem;
     width: 50%;
+    border-width: 1px 0 1px 1px;
 }
 
 
@@ -154,6 +155,9 @@ table td{
     padding:  1.6rem 4rem;
     
 }
+table tr:not(:last-child) td, tr th{
+    border-bottom: 1px solid #4A808C;
+}
 
 table tr:nth-child(odd){
     background-color: var(--table-color-odd);
@@ -162,32 +166,27 @@ table tr:nth-child(odd){
 
 table tr:nth-child(even){
     background-color: var(--table-color-even);
-    
 }
 
-/* table tbody tr:last-child{
-    border-bottom-left-radius: 12px;
-
-} */
 
 table tr:last-child td:first-child{
     border-bottom-left-radius: 12px;
-
 }
 
 table tr:last-child td:last-child{
     border-bottom-right-radius: 12px;
-
 }
 
-td.user{
-    display: flex;
+.user{
+    padding: 2.8rem 2rem 2.8rem 2.8rem;
+}
+.user div{
     align-items: center;
     gap: 1rem;
-    padding: 2.8rem 2rem 2.8rem 4rem;
+    display: flex;
 }
 
-td.user img{
+.user div img{
     width: 5rem;
     height: 5rem;
 
@@ -195,22 +194,22 @@ td.user img{
     border-radius: 50%;
 }
 
-td.user a{
+.user div a{
     text-decoration: none;
 
 }
 
-td.user p{
+.user div p{
     font-weight: bold;
     font-size: 2rem;
 }
 
-td.user span{
+.user span{
     font-size: 2rem;
 
 }
 
-td .remove{
+.remove{
     background: none;
     border: none;
     font-weight: bold;
@@ -222,27 +221,22 @@ tbody{
     position: relative;
 }
 
-.tr-no-results{
-    display: flex;
-    width: 100%;
-    position: absolute;
-    justify-content: center;
-    /* border-radius: 0 0 12px 12px; */
-}
-
 .no-results{
     background-color: var(--table-color-odd);
-    width: 100%;
-    height: clamp(24rem, 22rem + 10vw, 70rem);
-    /* border-radius: 0 0 12px 12px; */
+    height: clamp(18rem, 24rem, 70rem);
+    
+}
+
+.no-results span{
     display: flex;
     align-items: center;
+   
+    gap: min(2rem, 15vw);
+    justify-content: center;
+    text-align: center;
+    font-family: var(--ff-results);
     font-size: 4rem;
     line-height: 3.6rem;
-    font-family: var(--ff-results);
-    text-align: center;
-    gap: 6rem;
-    justify-content: center;
 }
 
 .no-results svg{
